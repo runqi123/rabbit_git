@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.RealnameMapper">
+   <insert id="addRealname" parameterType="Realname">
+
+         INSERT INTO asrabbit.realname
+             (
+             `realName`,
+             `realNameCard`,
+             `cardImgid`,
+             `occupationImgid`,
+             `occupationId`,
+             `sex`,
+             `birthday`,
+            `Hometown`,
+            `ruserId`
+             )
+             VALUES
+             (
+             #{realName},
+             #{realNameCard},
+             #{cardImgid},
+             #{occupationImgid},
+             #{occupationId},
+             #{sex},
+             #{birthday},
+             #{Hometown},
+             #{ruserId}
+             );
+   </insert>
+   <insert id="addImgcon" parameterType="Imgcon" >
+         INSERT INTO asrabbit.imgcon
+             (
+             imgAddress,
+             imgtype,
+             imgUserId
+             )
+             VALUES
+             (
+             #{imgAddress},
+             #{imgtype},
+             #{imgUserId}
+             );
+   </insert>
+    <select id="gety" resultType="Imgcon" parameterType="int">
+      SELECT imgId FROM imgcon WHERE imgUserId=#{imgUserId} AND imgtype='0';
+    </select>
+    <select id="getr" resultType="Imgcon" parameterType="int">
+      SELECT imgId FROM imgcon WHERE imgUserId=#{imgUserId} AND imgtype='1';
+    </select>
+    <select id="slectRelanme" resultType="Realname" parameterType="int">
+        SELECT 	realNameId,
+            realName,
+            realNameCard,
+            cardImgid,
+            occupationImgid,
+            occupationId,
+            sex,
+            Birthday,
+            Hometown,
+            ruserId
+            FROM
+            asrabbit.realname
+            WHERE ruserId=#{ruserId}
+    </select>
+</mapper>

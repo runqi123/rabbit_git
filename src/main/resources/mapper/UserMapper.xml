@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.UserMapper">
+    <select id="login"  resultType="Ruser">
+        SELECT 	ruserId,
+				emailUser,
+				uname,
+				balance,
+				ruserState,
+				ruserCredit,
+				pass,
+				img_Id,
+				isrname
+		FROM
+			asrabbit.ruser WHERE uname =#{uname} or emailUser = #{uname}
+    </select>
+    <insert id="register" parameterType="Ruser">
+        INSERT INTO asrabbit.ruser
+			(
+			emailUser,
+			uname,
+			balance,
+			ruserState,
+			pass
+			)
+			VALUES
+			(
+			#{emailUser},
+			#{uname},
+			#{balance},
+			#{ruserState},
+			#{pass}
+			);
+    </insert>
+	<update id="chongzhi" parameterType="int">
+		UPDATE asrabbit.ruser SET balance = #{balance}  WHERE ruserId = #{ruserId}
+	</update>
+	<select id="upRuser" resultType="Ruser" parameterType="int">
+	  SELECT 	ruserId,
+		emailUser,
+		uname,
+		balance,
+		ruserState,
+		ruserCredit,
+		pass,
+		img_Id,
+		isrname
+		from asrabbit.ruser where ruserId = #{rUserId}
+	</select>
+	<update id="shiming" parameterType="int">
+		UPDATE asrabbit.ruser
+			SET
+			isrname = 1
+			WHERE
+		ruserId = #{userId};
+	</update>
+</mapper>

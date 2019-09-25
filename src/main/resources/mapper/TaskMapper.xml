@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.TaskMapper">
+    <insert id="insertTask" parameterType="Task">
+INSERT INTO asrabbit.task
+	(
+	price,
+	taskCreateTime,
+	taskTitle,
+	taskOccupationId,
+	specificRequest,
+	isAccept,
+	place,
+	isComplete,
+	publisherId,
+	recipient,
+	ispublisher,
+	isrecipient,
+	specifiedtime,
+	taskState,
+	typeId
+	)
+	VALUES
+	(
+	#{price},
+	#{taskCreateTime},
+	#{taskTitle},
+	#{taskOccupationId},
+	#{specificRequest},
+	#{isAccept},
+	#{place},
+	#{isComplete},
+	#{publisherId},
+	#{recipient},
+	#{ispublisher},
+	#{isrecipient},
+	#{specifiedtime},
+	#{taskState},
+	#{typeId}
+	);
+    </insert>
+
+	<select id="getOccupation" resultType="Occupation">
+    SELECT 	OccupationId,
+	OccupationName,
+	isOccupationImg
+
+	FROM
+	asrabbit.occupation
+	</select>
+    <select id="taskSelect" resultMap="taskUserMap">
+      SELECT
+		taskId,
+		Price,
+		taskCreateTime,
+		taskTitle,
+		taskOccupationId,
+		specificRequest,
+		isAccept,
+		place,
+		isComplete,
+		publisherId,
+		recipient,
+		ispublisher,
+		isrecipient,
+		Specifiedtime,
+		taskState,
+		typeId,
+		u.uname
+	FROM
+		asrabbit.task t INNER JOIN asrabbit.ruser u ON t.publisherId=u.ruserId
+    <where>
+        <if test="typeId!=null and typeId!=0">
+             typeId=#{typeId} and
+        </if>
+		isAccept=0
+    </where>
+        <if test="price!=null">
+            ORDER BY price DESC
+        </if>
+        <if test="timeIs!=null">
+            ORDER BY taskCreateTime DESC
+        </if>
+    </select>
+	<select id="getTask" parameterType="int" resultType="Task">
+		SELECT 	taskId,
+			Price,
+			taskCreateTime,
+			taskTitle,
+			taskOccupationId,
+			specificRequest,
+			isAccept,
+			place,
+			isComplete,
+			publisherId,
+			recipient,
+			ispublisher,
+			isrecipient,
+			Specifiedtime,
+			taskState,
+			typeId
+			FROM
+			asrabbit.task
+			WHERE taskId=#{taskId}
+	</select>
+	<!-- //查看我的发布全部任务-->
+	<select id="getTaskByPublisherId" resultType="Task">
+
+SELECT 	taskId,
+	Price,
+	taskCreateTime,
+	taskTitle,
+	taskOccupationId,
+	specificRequest,
+	isAccept,
+	place,
+	isComplete,
+	publisherId,
+	recipient,
+	ispublisher,
+	isrecipient,
+	Specifiedtime,
+	taskState
+
+	FROM
+	asrabbit.task
+	where
+	publisherId=#{publisherId}
+	</select>
+	<!-- //查看我的接受全部任务-->
+	<select id="getTaskByRecipient" resultType="Task">
+
+SELECT 	taskId,
+	Price,
+	taskCreateTime,
+	taskTitle,
+	taskOccupationId,
+	specificRequest,
+	isAccept,
+	place,
+	isComplete,
+	publisherId,
+	recipient,
+	ispublisher,
+	isrecipient,
+	Specifiedtime,
+	taskState
+
+	FROM
+	asrabbit.task
+	where
+	recipient=#{recipient}
+	</select>
+	<update id="upTask" parameterType="Task" >
+		UPDATE asrabbit.task
+			SET
+			isAccept = 1 ,
+			recipient = #{recipient}
+			WHERE
+			taskId = #{taskId} ;
+	</update>
+    <resultMap id="taskUserMap" type="Task">
+        <id column="taskId" property="taskId"></id>
+        <result column="uname" property="uname"></result>
+    </resultMap>
+</mapper>

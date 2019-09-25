@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.UpdisMapper">
+   		<update id="updispublisher">
+			UPDATE asrabbit.task SET
+			ispublisher = 1
+			WHERE
+			taskId = #{taskid}
+		</update>
+	<update id="updisrecipient">
+			UPDATE asrabbit.task SET
+			isrecipient = 1
+			WHERE
+			taskId = #{taskid}
+		</update>
+	<update id="upisComplete">
+			UPDATE asrabbit.task SET
+			isComplete = 1
+			WHERE
+			taskId = #{taskid}
+		</update>
+</mapper>
