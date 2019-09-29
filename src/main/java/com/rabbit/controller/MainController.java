@@ -1,13 +1,7 @@
 package com.rabbit.controller;
 
-import com.rabbit.pojo.Occupation;
-import com.rabbit.pojo.Ruser;
-import com.rabbit.pojo.Task;
-import com.rabbit.pojo.Type;
-import com.rabbit.service.OccupationService;
-import com.rabbit.service.TaskService;
-import com.rabbit.service.TypeService;
-import com.rabbit.service.UserService;
+import com.rabbit.pojo.*;
+import com.rabbit.service.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +21,8 @@ public class MainController {
 
    @Resource
    private TypeService typeService;
-
+    @Resource
+    private RealnameService realnameService;
     @Resource
     private OccupationService occupationService;
 
@@ -140,6 +135,30 @@ public class MainController {
         model.addAttribute("taskUp",taskUp);
         model.addAttribute("ruserTask",ruserTask);
         return "queren";
+    }
+    @RequestMapping("getOccupation")
+    public String getOccupation(Model model){
+        List<Occupation> occupationList=occupationService.occupationList();
+        model.addAttribute("occupationList",occupationList);
+        return "occupation";
+    }
+    @RequestMapping("ifOccupation")
+    public String ifOccupation(HttpServletRequest request){
+        Ruser  ruser = (Ruser) request.getSession().getAttribute("ruser");
+        if(ruser==null){
+            return "login";
+        }else {
+            Realname realname =realnameService.slectRelanme(ruser.getRuserId());
+            if(realname==null){
+                return "redirect:/to/addzys";
+            }else {
+                if(realname.getOccupationId()==0){
+                    return "redirect:/to/getOccupation";
+                }else {
+                    return "occupationInfo";
+                }
+            }
+        }
     }
 }
 

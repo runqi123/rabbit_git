@@ -69,8 +69,8 @@ public class RealnameContorller {
         Integer createdId = ((Ruser) request.getSession().getAttribute(
                 "ruser")).getRuserId();
         // 设置文件上传的路径绝对路径/
-        String path = "D:"+File.separator+"Img";
-
+        //String path = "D:"+File.separator+"Img";
+        String path ="/data/wwwroot/default"+File.separator + "file";
         // 设置文件上传的路径
         //自动生成路径
 /*        String path = request.getSession().getServletContext()
@@ -143,7 +143,6 @@ public class RealnameContorller {
         Boolean result = false;
         try {
             for (int i=0;i<list.size();i++){
-                System.out.println("I"+i);
                 realnameService.addImgcon(list.get(i));
             }
             int img1=realnameService.getr(createdId).getImgId();
@@ -187,5 +186,61 @@ public class RealnameContorller {
             return "redirect:/to/addzys";
         }
 
+    }
+
+
+    @RequestMapping("updateRealname")
+    public String updateRealname(@RequestParam(value="fileImg") MultipartFile fileImg,@RequestParam(value="occupationId")Integer occupationId,HttpServletRequest request){
+        Map<String, String> resultMap = new HashMap<>();
+        Ruser ruser=(Ruser) request.getSession().getAttribute("ruser");
+        Imgcon files=new Imgcon();
+        String path ="/data/wwwroot/default"+File.separator + "file";
+        //String path ="D:"+File.separator + "Img";
+        String oldFileName = fileImg.getOriginalFilename();
+        // 获得文件后缀
+        String suffix = FilenameUtils.getExtension(oldFileName);
+        int fileSize = 1000000;
+        System.out.println("文件大小: " + fileImg.getSize());
+        if (fileImg.getSize() > fileSize) {
+            resultMap.put("keys","文件过大控制在1M内");
+        } else if (suffix.equalsIgnoreCase("jpg")
+                || suffix.equalsIgnoreCase("png")
+                || suffix.equalsIgnoreCase("jpeg")
+                || suffix.equalsIgnoreCase("jpeg")) {
+
+            String fileName = System.currentTimeMillis()+ RandomUtils.nextInt(1000000) + "_Personal" + "." + suffix;
+            System.out.println("进入问价夹创建name+" + fileName);
+            File targetFile = new File(path, fileName);
+            try {
+                System.out.println("进入了创件夹");
+                fileImg.transferTo(targetFile);
+                System.out.println(fileName);
+                files.setImgAddress("D:/Img/"+fileName);
+                files.setImgtype(2);
+                files.setImgUserId(ruser.getRuserId());
+                realnameService.addImgcon(files);
+            } catch (Exception e) {
+                e.printStackTrace();
+                resultMap.put("fileName",null);
+                resultMap.put("keys",e.getMessage());
+            }
+        }else {
+            resultMap.put("keys","文件类型不匹配");
+        }
+        resultMap.put("fileName",files.getImgAddress());
+        resultMap.put("keys","上传成功");
+        Imgcon imgcon=(Imgcon)realnameService.getImgconByType(ruser.getRuserId());
+        Realname realname=new Realname();
+        realname.setOccupationId(occupationId);
+        realname.setOccupationImgid(imgcon.getImgId());
+        realname.setRuserId(ruser.getRuserId());
+        int resultAll=realnameService.updateRelanme(realname);
+        if(resultAll>0){
+            Realname realname1= realnameService.slectRelanme(ruser.getRuserId());
+            request.getSession().setAttribute("realname",realname1);
+            return "redirect:/to/MyHome";
+        }else {
+            return "redirect:/to/getOccupation";
+        }
     }
 }

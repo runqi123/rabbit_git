@@ -44,4 +44,14 @@ public class RealnameServiceImpl implements RealnameService {
         return realnameMapper.slectRelanme(ruserId);
     }
 
+    @Override
+    public Integer updateRelanme(Realname realname) {
+        return realnameMapper.updateRelanme(realname);
+    }
+
+    @Override
+    public Imgcon getImgconByType(Integer imgUserId) {
+        return realnameMapper.getImgconByType(imgUserId);
+    }
+
 }

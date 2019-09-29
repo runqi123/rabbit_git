@@ -52,6 +52,9 @@
     <select id="getr" resultType="Imgcon" parameterType="int">
       SELECT imgId FROM imgcon WHERE imgUserId=#{imgUserId} AND imgtype='1';
     </select>
+    <select id="getImgconByType" resultType="Imgcon" parameterType="int">
+      SELECT imgId FROM imgcon WHERE imgUserId=#{imgUserId} AND imgtype='2';
+    </select>
     <select id="slectRelanme" resultType="Realname" parameterType="int">
         SELECT 	realNameId,
             realName,
@@ -67,4 +70,15 @@
             asrabbit.realname
             WHERE ruserId=#{ruserId}
     </select>
+    <update id="updateRelanme" parameterType="Realname" >
+        UPDATE asrabbit.realname
+        SET
+
+        occupationImgid = #{occupationImgid} ,
+        occupationId = #{occupationId}
+
+
+        WHERE
+        ruserId = #{ruserId};
+    </update>
 </mapper>

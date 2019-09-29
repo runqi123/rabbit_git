@@ -72,7 +72,7 @@
 </style>
 <body>
 <div class="AUTH_one">
-    <a href="myInfo.html">
+    <a href="../to/MyHome">
         <img class="jian" src="http://runqi123.cn/static/img/jiantou.png"/>返回
     </a>
 </div>

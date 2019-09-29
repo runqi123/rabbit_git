@@ -8,7 +8,7 @@
 		<meta content="telephone=no" name="format-detection">
 		<meta content="email=no" name="format-detection">
 		<meta http-equiv="refresh" content="100">
-		<title>我的余额</title>
+		<title>发布任务</title>
 		<script src="http://runqi123.cn/static/js/lCalendar.min.js"></script>
 		<link rel="stylesheet" href="http://runqi123.cn/static/css/lCalendar.css">
 		<style type="text/css">
@@ -139,7 +139,7 @@
 	</head>
 	<body>
 		<div class="Top_up_one">
-			<a href="myInfo.html">
+			<a href="../to/MyHome">
 				<img class="jian" src="http://runqi123.cn/static/img/jiantou.png"/>返回
 			</a>
 		</div>
@@ -171,7 +171,7 @@
 					</select>
 
 				<input name="place" placeholder="请输入您的任务地址"/>
-				<p class="tishi"><a href="/to/gps">查看定位</a></p>
+				<p class="tishi"><a href="../to/gps">查看定位</a></p>
 
 				<div align="center" class="topup" >
 					<textarea  placeholder="请输入任务的具体内容" name="specificRequest"></textarea>

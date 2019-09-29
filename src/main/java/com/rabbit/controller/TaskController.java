@@ -84,20 +84,38 @@ public class TaskController {
                         }
                     }
     @RequestMapping("upTask")
-    public String upTask(HttpServletRequest request,@RequestParam("taskId") Integer taskId){
-       Ruser  ruser=(Ruser) request.getSession().getAttribute("ruser");
-
-       if(ruser==null){
-           return "login";
-       }
-        Realname realname=(Realname)request.getSession().getAttribute("realname");
-        if(realname.getRuserId()==null){
-            return "redirect:/to/addzys";
+    public String upTask(HttpServletRequest request,@RequestParam("taskId") Integer taskId) {
+        System.out.println("hool");
+        Ruser ruser = (Ruser) request.getSession().getAttribute("ruser");
+        Task tasks = taskService.getTask(taskId);
+        if (ruser == null) {
+            return "login";
         }
-       Task task=new Task();
-       task.setRecipient(ruser.getRuserId());
-       task.setTaskId(taskId);
-        int result=taskService.upTask(task);
-        return "redirect:/to/MyHome";
+        Realname realname = (Realname) request.getSession().getAttribute("realname");
+        if (realname.getRuserId() == null) {
+            return "redirect:/to/addzys";
+        } else {
+            if (tasks.getTypeId() == 11) {
+                if (realname.getOccupationId() == tasks.getTaskOccupationId()) {
+                    Task task = new Task();
+                    task.setRecipient(ruser.getRuserId());
+                    task.setTaskId(taskId);
+                    int result = taskService.upTask(task);
+                    return "redirect:/to/MyHome";
+                }else {
+                    return "errInfo";
+                }
+
+            } else {
+                System.out.println("hello word");
+                Task task = new Task();
+                task.setRecipient(ruser.getRuserId());
+                task.setTaskId(taskId);
+                int result = taskService.upTask(task);
+                return "redirect:/to/MyHome";
+            }
+        }
+
     }
+
 }

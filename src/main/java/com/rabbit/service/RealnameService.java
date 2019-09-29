@@ -15,4 +15,8 @@ public interface RealnameService {
     public Imgcon getr(@Param("imgUserId") int imgUserId);
     //查看实名信息
     public Realname slectRelanme(Integer ruserId);
+    //修改职业认证信息
+    public Integer updateRelanme(Realname realname);
+    //查看职业证件照
+    public Imgcon getImgconByType(Integer imgUserId);
 }
