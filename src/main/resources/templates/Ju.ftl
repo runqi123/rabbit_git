@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>余额</title>
-    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js" ></script>
+    <script type="text/javascript" src="http://runqi123.cn/static/js/jquery-1.8.3.min.js" ></script>
 </head>
 <style>
     *{
@@ -80,15 +80,15 @@
         outline:medium;
     }
 </style>
-<link rel="stylesheet" href="../static/css/core.css" />
+<link rel="stylesheet" href="http://runqi123.cn/static/css/core.css" />
 <body>
 <div class="Top_up_one">
     <a href="../to/myInfo">
-        <img class="jian" src="../static/img/jiantou.png"/>返回
+        <img class="jian" src="http://runqi123.cn/static/img/jiantou.png"/>返回
     </a>
 </div>
 <div class="Top_up_two" align="center">
-    <img style="width: 200px;" src="../static/img/topupmoneyimg.png" />
+    <img style="width: 200px;" src="http://runqi123.cn/static/img/topupmoneyimg.png" />
     <p class="myJUfont">JU币</p>
     <p>
         <span class="count" id="count">${ruser.balance}</span>

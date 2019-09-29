@@ -17,6 +17,7 @@ public class Ruser {
 
 
 	private int isrname;
+
 	//<------------------------构造方法分割线-------------------------->
 
 	public int getImg_Id() {
@@ -80,6 +81,4 @@ public class Ruser {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-
-	
 }

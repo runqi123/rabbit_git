@@ -12,8 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import sun.misc.Contended;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -45,9 +43,11 @@ public class TaskController {
     public String toInsert(@RequestParam("price")int price, @RequestParam("taskTitle")String taskTitle, @RequestParam("taskOccupationId")int taskOccupationId
                           , @RequestParam("specificRequest")String specificRequest, @RequestParam("place")String place,
                          @RequestParam("specifiedtime") String specifiedtime, @RequestParam("typeId") int typeId, HttpServletRequest request){
+                        if(request.getSession().getAttribute("ruser")==null){
+                            return "redirect:/to/login";
+                        }
                         Task task = new Task();
                         task.setPrice(price);//任务价格
-                        System.out.println("价格为"+price);
                         task.setTaskTitle(taskTitle);//任务标题
                         task.setTaskOccupationId(taskOccupationId);//任务职业id
                         task.setSpecificRequest(specificRequest);//具体要求
@@ -64,7 +64,6 @@ public class TaskController {
                         }
                         Ruser ruser=null;
                         ruser=(Ruser) request.getSession().getAttribute("ruser");
-                        System.out.println(ruser.getRuserId());
                         task.setPublisherId( ruser.getRuserId());//任务发布者id
                         task.setTaskCreateTime(new Date());//任务发布日期
                         task.setTypeId(typeId);

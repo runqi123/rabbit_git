@@ -8,9 +8,9 @@
 		<meta content="telephone=no" name="format-detection">
 		<meta content="email=no" name="format-detection">
 		<meta http-equiv="refresh" content="100">
-		<title></title>
-		<script src="../static/js/lCalendar.min.js"></script>
-		<link rel="stylesheet" href="../static/css/lCalendar.css">
+		<title>我的余额</title>
+		<script src="http://runqi123.cn/static/js/lCalendar.min.js"></script>
+		<link rel="stylesheet" href="http://runqi123.cn/static/css/lCalendar.css">
 		<style type="text/css">
 			* {
 				margin: 0;
@@ -140,7 +140,7 @@
 	<body>
 		<div class="Top_up_one">
 			<a href="myInfo.html">
-				<img class="jian" src="../static/img/jiantou.png"/>返回
+				<img class="jian" src="http://runqi123.cn/static/img/jiantou.png"/>返回
 			</a>
 		</div>
 		<div align="center">

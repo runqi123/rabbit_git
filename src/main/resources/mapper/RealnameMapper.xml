@@ -15,7 +15,8 @@
              `sex`,
              `birthday`,
             `Hometown`,
-            `ruserId`
+            `ruserId`,
+            `cardImgBackid`
              )
              VALUES
              (
@@ -27,7 +28,8 @@
              #{sex},
              #{birthday},
              #{Hometown},
-             #{ruserId}
+             #{ruserId},
+             #{cardImgBackid}
              );
    </insert>
    <insert id="addImgcon" parameterType="Imgcon" >

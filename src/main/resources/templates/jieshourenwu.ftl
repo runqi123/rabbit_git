@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="../static/js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="http://runqi123.cn/static/js/jquery-2.1.0.min.js"></script>
     <meta charset="UTF-8">
-    <title></title>
+    <title>我的任务</title>
 </head>
-<link rel="stylesheet" href="../static/css/core.css" />
+<link rel="stylesheet" href="http://runqi123.cn/static/css/core.css" />
 <style>
     .Top_up_one{
         margin: 30px;
@@ -161,7 +161,7 @@
 <body>
 <div class="Top_up_one">
     <a onclick="fanhui()">
-        <img class="jian" src="../static/img/jiantou.png"/>返回
+        <img class="jian" src="http://runqi123.cn/static/img/jiantou.png"/>返回
     </a>
 </div>
 <div class="selectmyoryour" align="center">
@@ -175,14 +175,14 @@
 
             <input id="xq" style="display: none" type="text" value="${list.taskId}"/>
             <p class="renwuName">${list.taskTitle}</p>
-            <span class="renwuCity"><img src="../static/img/dibiao.png"/><a>${list.place}</a></span>
+            <span class="renwuCity"><img src="http://runqi123.cn/static/img/dibiao.png"/><a>${list.place}</a></span>
             <span class="renwuPC"><span class="redRediu"></span> : <a> ${list.taskCreateTime?string("MM月dd日 HH:mm")}</a></span>
             <span class="renwuPCC"><span class="blueRediu" ></span> : <a style="color: red;"> <#if list.isComplete==1>已完成
             <#elseif list.ispublisher==1>雇主：已确认<#elseif list.isrecipient==1>
 					接受者：已确认<#else> 未完成</#if></a></span>
-            <#if list.isComplete==1><img src="../static/img/timg111.png" style="opacity: 0.6" width="180px"/></#if>
-            <p class="renwuMoney"><img style="width: 40px;" src="../static/img/jinbi.png"/>×<span>${list.price}</span></p>
-            <a class="aioc upPosistion" href="/to/queren?taskId=${list.taskId}">查看详情</a>
+            <#if list.isComplete==1><img src="http://runqi123.cn/static/img/timg111.png" style="opacity: 0.6" width="180px"/></#if>
+            <p class="renwuMoney"><img style="width: 40px;" src="http://runqi123.cn/static/img/jinbi.png"/>×<span>${list.price}</span></p>
+            <a class="aioc upPosistion" href="../to/queren?taskId=${list.taskId}">查看详情</a>
 
 
         </div>
@@ -193,7 +193,7 @@
         window.history.back(-1);
     }
     function danji(){
-        window.location.href="/to/goLoading";
+        window.location.href="../to/goLoading";
     }
 </script>
 </body>

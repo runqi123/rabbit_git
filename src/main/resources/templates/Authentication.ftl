@@ -73,12 +73,12 @@
 <body>
 <div class="AUTH_one">
     <a href="myInfo.html">
-        <img class="jian" src="../static/img/jiantou.png"/>返回
+        <img class="jian" src="http://runqi123.cn/static/img/jiantou.png"/>返回
     </a>
 </div>
 <form action="addzy" method="post" enctype="multipart/form-data">
     <div align="center">
-        <img style="width:800px;" src="../static/img/shiming.png"/>
+        <img style="width:800px;" src="http://runqi123.cn/static/img/shiming.png"/>
         <div align="center" class="AUTH_FORM">
             <p class="name">
                 <label id="lblErr" style="color: red"></label>
@@ -89,7 +89,7 @@
                 身份证号:
                 <input id="realNameCard" name="realNameCard" />
             </p>
-            <p class="number" >
+            <#--<p class="number" >
                 职业:
                 <select id="button_box" style=" font-size: 18px; width: 60% ;height: 50px" name="occupationId">
                     <option value="0">请选择</option>
@@ -97,18 +97,18 @@
                     <option value="${occupation.occupationId}">${occupation.occupationName}</option>
                     </#list>
                 </select>
-            </p>
+            </p>-->
         </div>
-        <img class="SFI" src="../static/img/shenfen.png" id="1" width="80%"/>
+        <img class="SFI" src="http://runqi123.cn/static/img/IDCardFront.png" id="1" width="67%"/>
         <input type="file" name="attachs" class="SF" style="display: none;" id="4" />
-        <img class="ZYI" src="../static/img/zhiye.png" id="2" width="80%"/>
+        <img class="ZYI" src="http://runqi123.cn/static/img/IDCardBack.png" id="2" width="67%"/>
         <input type="file" name="attachs" class="ZY" style="display: none;" id="3"/>
         <div align="center" style="margin: 50px 0px;">
         <button>提交审核</button>
     </div>
 </form>
 </body>
-<script type="text/javascript" src="../static/js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="http://runqi123.cn/static/js/jquery-1.8.3.min.js" ></script>
 <script>
     $("#1").click(function(){
         $("#4").click();

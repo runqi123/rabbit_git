@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>任务详情</title>
 </head>
 <style>
     *{
@@ -12,7 +12,7 @@
     .total{
         width: 100%;
         height: 1250px;
-        background-image: url(../static/img/infobg.png);
+        background-image: url(http://runqi123.cn/static/img/infobg.png);
     }
     .neirong{
         width: 100%;
@@ -20,7 +20,7 @@
     .footer{
         width: 100%;
         height: 200px;
-        background-image: url(../static/img/4-pd.png);
+        background-image: url(http://runqi123.cn/static/img/4-pd.png);
         background-size: 100%;
         position: relative;
     }
@@ -248,16 +248,16 @@
 </style>
 <body>
 <div class="total">
-    <img src="../static/img/zd4.jpg" class="headImg"/>
+    <img src="http://runqi123.cn/static/img/zd4.jpg" class="headImg"/>
     <span class="Name">${ruserTask.uname}</span>
     <p class="Phone">邮箱 : ${ruserTask.emailUser}</p>
     <p class="Xin">
         信用度:
-        <img style="width: 40px;" src="../static/img/xingji.png"/>
-        <img style="width: 40px;" src="../static/img/xingji.png"/>
-        <img style="width: 40px;" src="../static/img/xingji.png"/>
-        <img style="width: 40px;" src="../static/img/xingji.png"/>
-        <img style="width: 40px;" src="../static/img/xingji.png"/>
+        <img style="width: 40px;" src="http://runqi123.cn/static/img/xingji.png"/>
+        <img style="width: 40px;" src="http://runqi123.cn/static/img/xingji.png"/>
+        <img style="width: 40px;" src="http://runqi123.cn/static/img/xingji.png"/>
+        <img style="width: 40px;" src="http://runqi123.cn/static/img/xingji.png"/>
+        <img style="width: 40px;" src="http://runqi123.cn/static/img/xingji.png"/>
     </p>
     <p class="jiezhiDate">截止时间 : ${taskUp.specifiedtime?string("MM月dd日 HH:mm")}</p>
     <p class="fabuDate">发布时间 : ${taskUp.taskCreateTime?string("MM月dd日 HH:mm")}</p>

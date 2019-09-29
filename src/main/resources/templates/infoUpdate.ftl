@@ -71,13 +71,13 @@
 <body>
 <div class="Top_up_one">
     <a href="myInfo.html">
-        <img class="jian" src="../static/img/jiantou.png"/>返回
+        <img class="jian" src="http://runqi123.cn/static/img/jiantou.png"/>返回
     </a>
 </div>
 <ul class="infoUpdUl">
     <li style="margin-top: 50px;">
         <span>头像</span>
-        <img src="../static/img/jiantou.png"/>
+        <img src="http://runqi123.cn/static/img/jiantou.png"/>
     </li>
     <li style="margin-top: 50px;">
         <span>昵称:</span>
@@ -90,11 +90,11 @@
     </li>
     <li>
         <span>生日:${realname.birthday}</span>
-        <img src="../static/img/jiantou.png"/>
+        <img src="http://runqi123.cn/static/img/jiantou.png"/>
     </li>
     <li>
         <span>户口所在地:${realname.hometown}</span>
-        <img src="../static/img/jiantou.png"/>
+        <img src="http://runqi123.cn/static/img/jiantou.png"/>
     </li>
     <li style="margin-top: 50px;">
         <span>邮箱:</span>

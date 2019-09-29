@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>个人信息</title>
 </head>
 <style type="text/css">
     html,body{
@@ -27,13 +27,13 @@
     }
     .top{
         width: 100%;
-        height: 400px;
+        height: 275px;
         box-shadow: 0px 0px 5px black;
         font-family: "微软雅黑";
         font-size: 50px;
         padding-top: 15px;
         color: rgb(66,141,114);
-        background-image: url(../static/img/201994-12062Q2342053.jpg);
+        background-image: url(http://runqi123.cn/static/img/201994-12062Q2342053.jpg);
         background-size: 100%;
     }
     .headImg{
@@ -108,73 +108,80 @@
 <body>
 <div class="top" align="center"></div>
 <div class="center" align="center">
-    <img class="headImg" src="../static/img/Rlogo.png" />
+    <img class="headImg" src="http://runqi123.cn/static/img/Rlogo.png" />
     <p class="nickName">${ruser.uname}</p>
 </div>
 <div class="center-next">
     <div align="left" class="ct-info">
-        <p class="center-next-p"><img src="../static/img/login.png"/><span>${ruser.emailUser}</span></p>
-        <p class="center-next-p"><img src="../static/img/info.png"/><span><#if realname.sex==1>男</#if><#if realname.sex==2>女</#if><#if realname.sex==0>未知</#if></span></p>
-        <p class="center-next-p"><img src="../static/img/city.png"/><span><#if realname.hometown??>${realname.hometown}</#if></span></p>
+        <p class="center-next-p"><img src="http://runqi123.cn/static/img/login.png"/><span>${ruser.emailUser}</span></p>
+        <p class="center-next-p"><img src="http://runqi123.cn/static/img/info.png"/><span><#if realname.sex==1>男</#if><#if realname.sex==2>女</#if><#if realname.sex==0>未知</#if></span></p>
+        <p class="center-next-p"><img src="http://runqi123.cn/static/img/city.png"/><span><#if realname.hometown??>${realname.hometown}</#if></span></p>
     </div>
     <div align="left" class="ct-select">
         <p class="ct-select-p" onclick="goLoading()">
             任务记录
-            <img class="jiantou" src="../static/img/jiantou.png"/>
+            <img class="jiantou" src="http://runqi123.cn/static/img/jiantou.png"/>
         </p>
         <p class="ct-select-p" id="ct-select-ju">
             我的JU币 : ${ruser.balance}个
-            <img class="jiantou" src="../static/img/jiantou.png"/>
+            <img class="jiantou" src="http://runqi123.cn/static/img/jiantou.png"/>
         </p>
         <#if (ruser.isrname==0)>
          <p class="ct-select-p" onclick="addzys()">
               实名认证 : 未认证
-              <img class="stract" src="../static/img/error.png" />
-              <img class="jiantou" src="../static/img/jiantou.png"/>
+              <img class="stract" src="http://runqi123.cn/static/img/error.png" />
+              <img class="jiantou" src="http://runqi123.cn/static/img/jiantou.png"/>
           </p>
         <#elseif (ruser.isrname==1)>
             <p class="ct-select-p" onclick="infoUp()" >
                 实名认证 : 已认证
-                <img class="jiantou" src="../static/img/jiantou.png"/>
+                <img class="jiantou" src="http://runqi123.cn/static/img/jiantou.png"/>
             </p>
         <#else>
 
     </#if>
-
+        <p class="ct-select-p">
+            我的职业 :
+            <img class="jiantou" src="http://runqi123.cn/static/img/jiantou.png"/>
+        </p>
         <p class="ct-select-p">
             关于我们
-            <img class="jiantou" src="../static/img/jiantou.png"/>
+            <img class="jiantou" src="http://runqi123.cn/static/img/jiantou.png"/>
         </p>
         <p class="ct-select-p top-border">
             意见反馈
-            <img class="jiantou" src="../static/img/jiantou.png"/>
+            <img class="jiantou" src="http://runqi123.cn/static/img/jiantou.png"/>
         </p>
         <p class="ct-select-p">
             设置
-            <img class="jiantou" src="../static/img/jiantou.png"/>
+            <img class="jiantou" src="http://runqi123.cn/static/img/jiantou.png"/>
+        </p>
+        <p class="ct-select-p" onclick="nologin()">
+            退出登录
+            <img class="jiantou" src="http://runqi123.cn/static/img/jiantou.png"/>
         </p>
     </div>
 </div>
 <div class="bottom" align="center">
-    <a class="bottomRadius quan"><img src="../static/img/全部任务.png"/></a>
-    <a class="bottomRadius fa"><img src="../static/img/center.png"/></a>
-    <a class="bottomRadius my"><img src="../static/img/我的click.png"/></a>
+    <a class="bottomRadius quan"><img src="http://runqi123.cn/static/img/allTask.png"/></a>
+    <a class="bottomRadius fa"><img src="http://runqi123.cn/static/img/center.png"/></a>
+    <a class="bottomRadius my"><img src="http://runqi123.cn/static/img/myclick.png"/></a>
 </div>
 </body>
-<script type="text/javascript" src="../static/js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="http://runqi123.cn/static/js/jquery-1.8.3.min.js" ></script>
 <script type="text/javascript">
     $(function(){
         $(window).scroll(function(){
             var to=window.scrollTop;
         });
         $(".quan").click(function(){
-            location.href="MyHome"
+            location.href="../to/MyHome"
         });
         $(".fa").click(function(){
 
         });
         $(".my").click(function(){
-            location.href="myInfo"
+            location.href="../to/myInfo"
         });
         $("#ct-select-ju").click(function () {
                location.href="../to/toJu";
@@ -189,6 +196,9 @@
     }
     function goLoading() {
         location.href="../to/goLoading"
+    }
+    function nologin() {
+        location.href="../to/nologin"
     }
 </script>
 </html>

@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>注册用户</title>
 </head>
 <style>
     *{margin: 0;padding: 0;overflow: hidden;}
@@ -39,7 +39,7 @@
 </style>
 <body>
 <div align="center">
-    <img class="ticon" src="../static/img/Rlogo.png"/>
+    <img class="ticon" src="http://runqi123.cn/static/img/Rlogo.png"/>
         <input class="nickName" placeholder="用户名/昵称" id="userName"/>
         <input class="nickName"  placeholder="邮箱" id="emailUser"/>
         <input class="password" type="password" placeholder="密码" id="pass"/>
@@ -47,7 +47,7 @@
         <button class="loginButton" onclick="register()">注册</button>
 </div>
 </body>
-<script type="text/javascript" src="../static/js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="http://runqi123.cn/static/js/jquery-1.8.3.min.js" ></script>
 <script>
     //注册代码
     function register() {
@@ -70,6 +70,7 @@
             $.post("../users/register","uname="+uname+"&emailUser="+emailUser+"&pass="+pass,function(data){
                         if(data.exkey=="true"){
                             alert("注册成功");
+                            window.location.href="../to/login"
                         }else {
                             alert("注册失败");
                         }

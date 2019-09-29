@@ -12,7 +12,7 @@ public class Realname {
     private String birthday;
     private String Hometown;
     private Integer ruserId;
-
+    private int cardImgBackid;
     public Integer getRuserId() {
         return ruserId;
     }
@@ -91,5 +91,13 @@ public class Realname {
 
     public void setHometown(String hometown) {
         Hometown = hometown;
+    }
+
+    public int getCardImgBackid() {
+        return cardImgBackid;
+    }
+
+    public void setCardImgBackid(int cardImgBackid) {
+        this.cardImgBackid = cardImgBackid;
     }
 }

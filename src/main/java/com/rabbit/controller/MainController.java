@@ -35,7 +35,13 @@ public class MainController {
     private TaskService taskService;
 
     @RequestMapping("login")
-    public String index(){
+    public String index(HttpServletRequest request){
+
+        return "login";
+    }
+    @RequestMapping("nologin")
+    public String noindex(HttpServletRequest request){
+        request.getSession().removeAttribute("ruser");
 
         return "login";
     }

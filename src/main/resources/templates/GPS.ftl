@@ -26,7 +26,7 @@
 
 <div id='container'></div>
 <div id="tip"></div>
-<script src="../static/js/jquery-1.8.3.min.js"></script>
+<script src="http://runqi123.cn/static/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
     /***************************************
      由于Chrome、IOS10等已不再支持非安全域的浏览器定位请求，为保证定位成功率和精度，请尽快升级您的站点到HTTPS。

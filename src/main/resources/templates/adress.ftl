@@ -9,8 +9,8 @@
     <meta content="email=no" name="format-detection">
     <meta http-equiv="refresh" content="100">
     <title></title>
-    <script src="../static/js/lCalendar.min.js"></script>
-    <link rel="stylesheet" href="../static/css/lCalendar.css">
+    <script src="http://runqi123.cn/static/js/lCalendar.min.js"></script>
+    <link rel="stylesheet" href="http://runqi123.cn/static/css/lCalendar.css">
 </head>
 <body>
 <h1>${adress}</h1>

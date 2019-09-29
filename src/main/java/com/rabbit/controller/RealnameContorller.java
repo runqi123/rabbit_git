@@ -60,8 +60,7 @@ public class RealnameContorller {
                        HttpServletRequest request,
                        @RequestParam(value = "attachs", required = false) MultipartFile[] attachs,
                        @RequestParam(value = "realName", required = false) String  realName,
-                       @RequestParam(value = "realNameCard", required = false) String realNameCard,
-                       @RequestParam(value = "occupationId", required = false) int occupationId
+                       @RequestParam(value = "realNameCard", required = false) String realNameCard
     ){
         String idPicPath = null;
         String workPicPath = null;
@@ -153,13 +152,13 @@ public class RealnameContorller {
             System.out.println("id"+img2);
             realname.setRealName(realName);
             realname.setRealNameCard(realNameCard);
-            realname.setOccupationImgid(img1);
+            realname.setOccupationImgid(0);
             realname.setCardImgid(img2);
+            realname.setCardImgBackid(img1);
             String subcode=realNameCard.substring(0,6);
             String hometown=areacodeService.selectDesc(subcode);
-            realname.setOccupationId(null);
             realname.setHometown(hometown);
-            realname.setOccupationId(occupationId);
+            realname.setOccupationId(0);//给OccupationId默认值
             String sex=realNameCard.substring(16,17);
             if(Integer.parseInt(sex)%2==0){
                 realname.setSex(2);
@@ -179,7 +178,6 @@ public class RealnameContorller {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(result);
         if (result) {
             Ruser ruser=(Ruser) request.getSession().getAttribute("ruser");
             Realname realname1=(Realname) realnameService.slectRelanme(ruser.getRuserId());

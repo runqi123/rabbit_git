@@ -3,7 +3,7 @@
 <head>
     <base href="<%=basePath%>">
 
-    <title>小组测试</title>
+    <title>解忧兔-登录</title>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
@@ -48,7 +48,7 @@
 </style>
 <body>
 <div align="center">
-    <img class="ticon" src="../static/img/Rlogo.png"/>
+    <img class="ticon" src="http://runqi123.cn/static/img/Rlogo.png"/>
 
     <input class="nickName" placeholder="用户名/邮箱" id="uname"/>
     <input class="password" type="password" placeholder="密码" id="pass"/>
@@ -58,7 +58,7 @@
 </div>
 
 </body>
-<script src="../static/js/jquery-1.8.3.min.js"></script>
+<script src="http://runqi123.cn/static/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
     //登录方法
     function Rlogin() {

@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>解忧兔-全部任务</title>
 </head>
 <style type="text/css">
     html,body{
@@ -163,7 +163,7 @@
     .fabu{
         width: 100%;
         height: 800px;
-        background-image: url(../static/img/fabu.png);
+        background-image: url(http://runqi123.cn/static/img/fabu.png);
         background-size: 100%;
         position: fixed;
         bottom: -800px;
@@ -237,7 +237,7 @@
         <a class="order order4">距离</a>
         <a class="order order5">
             <span>分类</span>
-            <img src="../static/img/分类.png" />
+            <img src="http://runqi123.cn/static/img/class.png" />
         </a>
     </p>
 </div>
@@ -250,7 +250,7 @@
 <#list taskList as task>
     <div class="neirongONE">
         <p class="renwuName">${task.taskTitle}</p>
-        <span class="renwuCity"><img src="../static/img/dibiao.png"/><a>${task.place}</a></span>
+        <span class="renwuCity"><img src="http://runqi123.cn/static/img/dibiao.png"/><a>${task.place}</a></span>
         <span class="renwuType"><a class="rwTypeButton">
             <#if task.typeId==1 >买卖
             <#elseif task.typeId==2>跑腿
@@ -277,28 +277,28 @@
             <#else >其他</#if></a></span>
         <span class="renwuPC"><span class="redRediu"></span> <a> ${task.taskCreateTime?string("MM月dd日 HH:mm")}</a></span>
         <span class="renwuPCC"><span class="blueRediu"></span> : <a> ${task.uname}</a></span>
-        <p class="renwuMoney"><img style="width: 40px;" src="../static/img/jinbi.png"/>×<span>${task.price}</span></p>
+        <p class="renwuMoney"><img style="width: 40px;" src="http://runqi123.cn/static/img/jinbi.png"/>×<span>${task.price}</span></p>
         <a class="aioc upPosistion" href="../to/taskUp?taskId=${task.taskId}">查看详情</a>
     </div>
 </#list>
 
 </div>
 <div class="bottom" align="center">
-    <a class="bottomRadius quan"><img src="../static/img/全部任务click.png"/></a>
-    <a class="bottomRadius fa"><img src="../static/img/center.png"/></a>
-    <a class="bottomRadius my"><img src="../static/img/我的.png"/></a>
+    <a class="bottomRadius quan"><img src="http://runqi123.cn/static/img/allTaskclick.png"/></a>
+    <a class="bottomRadius fa"><img src="http://runqi123.cn/static/img/center.png"/></a>
+    <a class="bottomRadius my"><img src="http://runqi123.cn/static/img/my.png"/></a>
 </div>
 <div class="zhiding">
-    <img src="../static/img/7957446f13bb7fc.png">
+    <img src="http://runqi123.cn/static/img/7957446f13bb7fc.png">
 </div>
 <div class="fabu" align="center">
     <span class="fabu-close">×</span>
      <#list list as list1>
-        <a href="/to/toUp?typeId=${list1.typeId}" class="iconborder"><img class="iconimg" src="${list1.typeImg}" /><p class="iconfont">${list1.typeContent}</p></a>
+        <a href="../to/toUp?typeId=${list1.typeId}" class="iconborder"><img class="iconimg" src="${list1.typeImg}" /><p class="iconfont">${list1.typeContent}</p></a>
      </#list>
 </div>
 </body>
-<script type="text/javascript" src="../static/js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="http://runqi123.cn/static/js/jquery-1.8.3.min.js" ></script>
 <script type="text/javascript">
     $(function(){
         $(window).scroll(function(e){
@@ -328,7 +328,8 @@
             $(".fabu-close").css({"transform":"rotate(-180deg)","transition":"transform 1s ease"});
         });
         $(".quan").click(function(){
-            location.href="Home.html"
+
+            location.href="http://runqi123.cn/rabbit/to/MyHome"
         });
         $(".fa").click(function(){
             $(".fabu").css({"bottom":"0px","transition":"bottom 0.5s ease"});
@@ -343,11 +344,11 @@
             order5++;
             if(order5%2==0){
                 $(".order5").children("span").css("color","rgb(67,141,115)");
-                $(".order5").children("img").attr("src","../static/img/分类click.png");
+                $(".order5").children("img").attr("src","http://runqi123.cn/static/img/classclick.png");
                 $(".ul").slideDown();
             }else{
                 $(".order5").children("span").css("color","rgb(91,191,143)");
-                $(".order5").children("img").attr("src","../static/img/分类.png");
+                $(".order5").children("img").attr("src","http://runqi123.cn/static/img/class.png");
                 $(".ul").slideUp();
             }
         });
