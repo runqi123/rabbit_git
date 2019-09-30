@@ -70,18 +70,22 @@ public class TaskController {
                         task.setTaskState(0);//任务状态
                         task.setIsrecipient(0);//接受者确认是否完成任务
                         task.setIspublisher(0);//发布任务者确认是否完成任务
-                        int result = taskService.tianjiaTask(task);
-                        if (result>0){
+
+
                             Ruser ruser1=null;
                             ruser1=(Ruser) request.getSession().getAttribute("ruser");
                             int yue=ruser1.getBalance()-price;
-                            userService.chongzhi(yue,ruser1.getRuserId());
-                            ruser1=userService.upRuser(ruser1.getRuserId());
-                            request.getSession().setAttribute("ruser",ruser1);
-                            return "redirect:/to/MyHome";
-                        }else {
-                            return"redirect:/to/up";
-                        }
+                            if(yue<0){
+                                int result = taskService.tianjiaTask(task);
+                                return "JuInfo";
+                            }else {
+                                userService.chongzhi(yue,ruser1.getRuserId());
+                                ruser1=userService.upRuser(ruser1.getRuserId());
+                                request.getSession().setAttribute("ruser",ruser1);
+                                return "redirect:/to/MyHome";
+                            }
+
+
                     }
     @RequestMapping("upTask")
     public String upTask(HttpServletRequest request,@RequestParam("taskId") Integer taskId) {
